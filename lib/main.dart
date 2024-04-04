@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kxiter/src/views/login.dart';
+import 'package:kxiter/src/views/auth/login.dart';
+import 'package:kxiter/src/views/homepage/home_screen.dart';
+import 'package:kxiter/src/views/music_player_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +19,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginScreen(),
+      darkTheme: ThemeData.dark(),
+      home: const MusicPlayerScreen(),
     );
   }
 }
