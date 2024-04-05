@@ -13,8 +13,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   flashy_tab_bar2: ^0.0.10
   http: ^1.1.0
-  just_audio: ^0.9.28
-  spotify: ^0.13.1
+  audioplayers: ^5.2.1
+  # just_audio: ^0.9.21
+  # spotify: ^0.13.1
 
 
 dev_dependencies:
