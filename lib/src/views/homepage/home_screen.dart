@@ -1,8 +1,8 @@
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kxiter/src/controller/home_controller.dart';
-import 'package:kxiter/src/models/artist_models.dart';
+import 'package:kxiter/src/views/homepage/widget/books_list_screen.dart';
+import 'package:kxiter/src/views/homepage/widget/search.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,11 +13,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var _selectedIndex = 0;
-  late Future<Artist> Artists;
   @override
   void initState() {
     super.initState();
-    Artists = getArtist();
   }
 
   @override
@@ -39,31 +37,19 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(
           child: Column(children: [
-            Column(
-              children: [
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [Text("Followed Artist"), Text('see all')],
-                    ),
-                    FutureBuilder<Artist>(
-                      future: Artists,
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          return Text(snapshot.data!.name!);
-                        } else if (snapshot.hasError) {
-                          return Text('${snapshot.error}');
-                        }
-
-                        // By default, show a loading spinner.
-                        return const CircularProgressIndicator();
-                      },
-                    ),
-                  ],
-                )
-              ],
-            ),
+            Column(children: [
+              Search(),
+              SizedBox(height: 20),
+              BooksListScreen(
+                title: 'Trending Books',
+              ),
+              SizedBox(height: 20),
+              BooksListScreen(
+                title: 'Recommended Books',
+              ),
+              SizedBox(height: 20),
+              BooksListScreen(title: 'Favourites Books')
+            ]),
           ]),
         ),
       ),
@@ -79,8 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
             title: Text('Home'),
           ),
           FlashyTabBarItem(
-            icon: Icon(Icons.search),
-            title: Text('Search'),
+            icon: Icon(Icons.book_outlined),
+            title: Text('Collection'),
           ),
           FlashyTabBarItem(
             icon: Icon(CupertinoIcons.heart),
