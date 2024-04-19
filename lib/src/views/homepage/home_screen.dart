@@ -26,12 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
           greeting(),
           style: const TextStyle(fontWeight: FontWeight.w700),
         ),
-        actions: const [
-          Icon(Icons.notifications),
-          SizedBox(width: 10),
-          Icon(Icons.settings),
-          SizedBox(width: 10)
-        ],
+        actions: const [Icon(Icons.notifications), SizedBox(width: 10)],
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -65,16 +60,12 @@ class _HomeScreenState extends State<HomeScreen> {
             title: Text('Home'),
           ),
           FlashyTabBarItem(
-            icon: Icon(Icons.book_outlined),
-            title: Text('Collection'),
+            icon: Icon(Icons.library_books),
+            title: Text('Library'),
           ),
           FlashyTabBarItem(
-            icon: Icon(CupertinoIcons.heart),
-            title: Text('Favorites'),
-          ),
-          FlashyTabBarItem(
-            icon: Icon(CupertinoIcons.person),
-            title: Text('Users'),
+            icon: Icon(CupertinoIcons.settings),
+            title: Text('Settings'),
           ),
         ],
       ),

@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:kxiter/src/models/List_model.dart';
 
+// const url = 'https://api.algobook.info/v1/ebooks/title/Lord%20of%20the%20rings';
 const url =
     'https://e-book-api-algobook.p.rapidapi.com/v1/ebooks/isbn/9781101147054';
-
-Future<ListBook> getPosts() async {
+Future<ListBook> getBooks() async {
   var url1 = Uri.parse(url);
   final response = await http.get(
     url1,
@@ -15,8 +15,8 @@ Future<ListBook> getPosts() async {
     },
   );
   if (response.statusCode == 200) {
-    // print(body);
-    return ListBook.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+    print(response.body);
+    return ListBook.fromJson(jsonDecode(response.body));
   } else {
     throw Exception('Failed');
   }
