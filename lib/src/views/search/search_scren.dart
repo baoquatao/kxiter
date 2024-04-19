@@ -13,7 +13,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: AppBar(
         actions: [],
-        title: Text('Search'),
+        title: Text(''),
       ),
     );
   }
